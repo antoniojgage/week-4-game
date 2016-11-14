@@ -24,7 +24,18 @@ $(document).ready(function() {
 
     createOptions();
 
-
+function createOptions() {
+    for (i = 0; i < options.length; i++) {
+        var optionsBtn = $("<button>");
+        optionsBtn.html("<h1>" + options[i] + "</h1>")
+        optionsBtn.addClass("heros");
+        optionsBtn.attr("heroName", options[i]);
+        optionsBtn.append(characterImages[i]);
+        optionsBtn.append("<h3> Health = " + healthPower[i] + "</h3>");
+        optionsBtn.append("<h3> Attack Power = " + attackPower[i] + "</h3>");
+        $("#options").append(optionsBtn);
+    }
+}
     // }
 
     $(".heros").click(function() {
@@ -65,15 +76,4 @@ $(document).ready(function() {
 });
 
 
-function createOptions() {
-    for (i = 0; i < options.length; i++) {
-        var optionsBtn = $("<button>");
-        optionsBtn.html("<h1>" + options[i] + "</h1>")
-        optionsBtn.addClass("heros");
-        optionsBtn.attr("heroName", options[i]);
-        optionsBtn.append(characterImages[i]);
-        optionsBtn.append("<h3> Health = " + healthPower[i] + "</h3>");
-        optionsBtn.append("<h3> Attack Power = " + attackPower[i] + "</h3>");
-        $("#options").append(optionsBtn);
-    }
-}
+
