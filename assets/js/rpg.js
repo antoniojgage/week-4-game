@@ -15,30 +15,18 @@
 // }
 
 // window.onload = function() {
-var options = ["Thor", "Batman", "Superman", "Green Arrow", "Wolverine"];
-var characterImages = ["<img src='assets/images/thor.gif'>", "<img src='assets/images/batman.gif'>", "<img src='assets/images/superman.gif'>", "<img src='assets/images/greenarrow.gif'>", "<img src='assets/images/wolverine.gif'>"];
-var healthPower = [300, 200, 500, 50, 350];
-var attackPower = [25, 15, 100, 15, 12];
-
-
-createOptions();
-
-
-// }
-
-function createOptions() {
-    for (i = 0; i < options.length; i++) {
-        var optionsBtn = $("<button>");
-        optionsBtn.html("<h1>" + options[i] + "</h1>")
-        optionsBtn.addClass("heros");
-        optionsBtn.attr("heroName", options[i]);
-        optionsBtn.append(characterImages[i]);
-        optionsBtn.append("<h3> Health = " + healthPower[i] + "</h3>");
-        optionsBtn.append("<h3> Attack Power = " + attackPower[i] + "</h3>");
-        $("#options").append(optionsBtn);
-    }
-}
 $(document).ready(function() {
+    var options = ["Thor", "Batman", "Superman", "Green Arrow", "Wolverine"];
+    var characterImages = ["<img src='assets/images/thor.gif'>", "<img src='assets/images/batman.gif'>", "<img src='assets/images/superman.gif'>", "<img src='assets/images/greenarrow.gif'>", "<img src='assets/images/wolverine.gif'>"];
+    var healthPower = [300, 200, 500, 50, 350];
+    var attackPower = [25, 15, 100, 15, 12];
+
+
+    createOptions();
+
+
+    // }
+
     $(".heros").click(function() {
         // $(".defenders").click(function() {
         if ($(this).hasClass("defenders") && defenderChoice !== true) {
@@ -63,9 +51,7 @@ $(document).ready(function() {
         }
 
     });
-
     // });
-
     $(".defenders").click(function() {
         // $(this).addClass("defender");
         $(this).toggleClass("defenders");
@@ -77,3 +63,17 @@ $(document).ready(function() {
 
 
 });
+
+
+function createOptions() {
+    for (i = 0; i < options.length; i++) {
+        var optionsBtn = $("<button>");
+        optionsBtn.html("<h1>" + options[i] + "</h1>")
+        optionsBtn.addClass("heros");
+        optionsBtn.attr("heroName", options[i]);
+        optionsBtn.append(characterImages[i]);
+        optionsBtn.append("<h3> Health = " + healthPower[i] + "</h3>");
+        optionsBtn.append("<h3> Attack Power = " + attackPower[i] + "</h3>");
+        $("#options").append(optionsBtn);
+    }
+}
