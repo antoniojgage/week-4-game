@@ -16,11 +16,19 @@
 // }
 
 //Array's of options and their elements
-var options = ["Thor", "Batman", "Superman", "Green Arrow", "Wolverine"];
-var characterImages = ["<img src='assets/images/thor.gif'>", "<img src='assets/images/batman.gif'>", "<img src='assets/images/superman.gif'>", "<img src='assets/images/greenarrow.gif'>", "<img src='assets/images/wolverine.gif'>"];
-var healthPower = [300, 200, 500, 50, 350];
-var attackPower = [25, 15, 100, 15, 12];
-var playerHealth = [300, 200, 500, 50, 350];
+var options = ["Death Pact Angel", "Baneslayer Angel", "Reaper from the Abyss", "Angel of Sernity", "Grand Abolisher"];
+var characterImages = ["<img src='assets/images/deathpact-angel.jpg'>", "<img src='assets/images/baneslayer-angel.jpg'>", "<img src='assets/images/reaper-from-the-abyss.jpg'>", "<img src='assets/images/angelofsernity.jpg'>", "<img src='assets/images/grandabolisher.jpg'>"];
+var healthPower = [30, 100, 50, 50, 35];
+var attackPower = [2, 1, 10, 7, 12];
+var playerHealth = [30, 100, 50, 50, 35];
+
+
+
+// var options = ["Thor", "Batman", "Superman", "Green Arrow", "Wolverine"];
+// var characterImages = ["<img src='assets/images/thor.gif'>", "<img src='assets/images/batman.gif'>", "<img src='assets/images/superman.gif'>", "<img src='assets/images/greenarrow.gif'>", "<img src='assets/images/wolverine.gif'>"];
+// var healthPower = [300, 200, 500, 50, 350];
+// var attackPower = [25, 15, 100, 15, 12];
+// var playerHealth = [300, 200, 500, 50, 350];
 //Empty array to push objects of character stats to.
 var allToons = [];
 //Global variables used for game attack logic.
@@ -76,10 +84,13 @@ $(document).ready(function() {
         //logic below takes clicks only delcared as defender options, moves the the clicked choice to defenders Choice div and sets all others to waiting class
         if ($(this).hasClass("defenderOptions")) {
             console.log("Clicking " + $(this).text());
-            $(this).prependTo("#defenderChoice");
-            $(".defenderOptions").addClass("waiting");
+            $(this).removeClass("waiting");
+            // $(this).prependTo("#defenderChoice");
+            $(".defenderOptions").not(this).addClass("waiting");
             $(".defenderOptions").removeClass("defenderOptions");
             $(this).addClass("defenderChoice");
+            $(this).prependTo("#defenderChoice");
+
         };
     });
 
